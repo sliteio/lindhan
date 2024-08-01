@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Linaa</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fcc71a;
+            margin: 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .book-container {
+            width: 800px;
+            height: 500px;
+            perspective: 1500px;
+            margin-bottom: 20px; 
+        }
+        
+        .book {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .page {
+            width: 50%;
+            height: 100%;
+            background-color: white;
+            position: absolute;
+            backface-visibility: hidden;
+            transition: transform 2.5s ease;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .left-page {
+            left: 0;
+            background-color: #ffffff;
+        }
+        
+        .right-page {
+            left: 50%;
+            transform-origin: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        
+        .page img {
+            width: 80%;
+            height: auto;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            aspect-ratio: 3/4;
+        }
+        
+        .author-name {
+            position: absolute;
+            bottom: 0px; 
+            right: 15px; 
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #000;
+        }
+        
+        .music-player {
+            text-align: center;
+            color: #ffffff; 
+            cursor: pointer; 
+        }
+        
+        .music-player i {
+            font-size: 70px; 
+            margin-right: 10px; 
+            margin-top: 10px; 
+        }
+        
+        #song-duration {
+            font-size: 16px;
+            color: #333; 
+            margin-top: 5px; 
+        }
+        
+        #lyrics-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #333;
+            font-size: 20px;
+            font: bold;
+            text-align: center;
+            padding: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book-container">
+            <div class="book">
+                <div class="page left-page">
+                    <div id="lyrics-container"></div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/1.jpeg" alt="Foto 1">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/2.jpeg" alt="Foto 2">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/3.jpeg" alt="Foto 3">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/4.jpeg" alt="Foto 4">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/5.jpeg" alt="Foto 5">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/6.jpeg" alt="Foto 6">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/7.jpeg" alt="Foto 7">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/8.jpeg" alt="Foto 8">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/9.jpeg" alt="Foto 9">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/10.jpeg" alt="Foto 10">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/11.jpeg" alt="Foto 11">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/12.jpeg" alt="Foto 12">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/13.jpeg" alt="Foto 13">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+                <div class="page right-page">
+                    <img src="img/14.jpeg" alt="Foto 14">
+                    <div class="author-name">Lina Aulia</div>
+                </div>
+            </div>
+        </div>
+        <div class="music-player">
+            <div id="play-pause" class="play-button">
+                <i data-feather="play"></i>
+            </div>
+            <div id="song-duration"></div>
+            <audio id="audio" src="assets/audio/ST12RasaYangTertinggalOfficialLyricVideo (mp3cut.net).mp3"></audio>
+        </div>
+    </div>
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace(); 
+        
+            const playPauseButton = document.getElementById('play-pause');
+            const audio = document.getElementById('audio');
+            const songDuration = document.getElementById('song-duration');
+            const lyricsContainer = document.getElementById('lyrics-container');
+            let intervalId;
+        
+            const lyrics = [
+                { time: 0, text: "....." },
+                { time: 3, text: "Dapatkah aku memeluknya?" },
+                { time: 6, text: "Menjadikan bintang di surga" },
+                { time: 9, text: "Memberikan warna yang bisa menjadikan indah" },
+                { time: 16, text: "Aku tak mampu tuk mengatakan" },
+                { time: 20, text: "Aku tak mampu tuk mengungkapkan" },
+                { time: 23, text: "Hingga sampai saat ini, perasaan ku telah tertinggal" },
+                { time: 30, text: "Dapatkah aku memeluknya?" },
+                { time: 33, text: "Menjadikan bintang-bintang di surga" },
+                { time: 37, text: "Memberikan warna yang bisa dan teruslah bisa menjadikan indah" },
+                { time: 44, text: "....." },
+            ];
+        
+            playPauseButton.addEventListener('click', () => {
+                togglePlay();
+            });
+        
+            function togglePlay() {
+                if (audio.paused) {
+                    audio.play();
+                    playPauseButton.innerHTML = '<i data-feather="pause"></i>'; 
+                    feather.replace(); 
+                    displayDuration(); 
+                    startPageTransition(); 
+                    syncLyrics(); 
+                } else {
+                    audio.pause();
+                    playPauseButton.innerHTML = '<i data-feather="play"></i>';
+                    feather.replace(); 
+                    clearInterval(intervalId); 
+                    clearInterval(lyricsInterval); 
+                }
+            }
+        
+            function displayDuration() {
+                audio.addEventListener('loadedmetadata', () => {
+                    const duration = formatTime(audio.duration);
+                    songDuration.textContent = duration; 
+                });
+        
+                audio.addEventListener('timeupdate', () => {
+                    const currentTime = formatTime(audio.currentTime);
+                    const duration = formatTime(audio.duration);
+                    songDuration.textContent = currentTime + ' / ' + duration; 
+                });
+            }
+        
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60);
+                const formattedTime = `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+                return formattedTime;
+            }
+        
+            function preloadImages(pages) {
+                return new Promise((resolve) => {
+                    let loadedCount = 0;
+                    const totalImages = pages.length;
+        
+                    pages.forEach(page => {
+                        const img = page.querySelector('img');
+                        if (img.complete) {
+                            loadedCount++;
+                            if (loadedCount === totalImages) resolve();
+                        } else {
+                            img.onload = () => {
+                                loadedCount++;
+                                if (loadedCount === totalImages) resolve();
+                            };
+                        }
+                    });
+                });
+            }
+        
+            const rightPages = document.querySelectorAll('.right-page');
+            let currentPage = 0;
+        
+            function showPage(pageIndex) {
+                rightPages.forEach((page, index) => {
+                    if (index === pageIndex) {
+                        page.style.transform = 'rotateY(0deg)';
+                        page.style.zIndex = 2;
+                        page.style.visibility = 'visible';
+                    } else if (index < pageIndex) {
+                        page.style.transform = 'rotateY(-180deg)';
+                        page.style.zIndex = 1;
+                        page.style.visibility = 'visible';
+                    } else {
+                        page.style.transform = 'rotateY(0deg)';
+                        page.style.zIndex = 0;
+                        page.style.visibility = 'visible';
+                    }
+                });
+        
+                if (pageIndex < rightPages.length - 1) {
+                    rightPages[pageIndex + 1].style.transform = 'rotateY(0deg)';
+                    rightPages[pageIndex + 1].style.zIndex = 1;
+                    rightPages[pageIndex + 1].style.visibility = 'visible';
+                }
+            }
+        
+            function nextPage() {
+                if (currentPage < rightPages.length - 1) {
+                    currentPage++;
+                } else {
+                    currentPage = 0; 
+                }
+                showPage(currentPage);
+            }
+        
+            function startPageTransition() {
+                intervalId = setInterval(nextPage, 4000);
+            }
+        
+            function syncLyrics() {
+                const lyricsInterval = setInterval(() => {
+                    const currentTime = audio.currentTime;
+                    const currentLyric = lyrics.find(lyric => Math.floor(lyric.time) === Math.floor(currentTime));
+                    if (currentLyric) {
+                        lyricsContainer.textContent = currentLyric.text;
+                    }
+                }, 1000);
+            }
+        
+            preloadImages(rightPages).then(() => {
+                showPage(currentPage);
+            });
+        });
+        
+        feather.replace(); 
+    </script>
+</body>
+</html>
