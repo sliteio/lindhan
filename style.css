@@ -75,10 +75,10 @@ body {
 }
 
 /* Hero Section */
-
 .hero {
-    background: linear-gradient(rgba(255, 105, 180, 0.7), rgba(255, 20, 147, 0.7)), url('img/2.jpg') no-repeat center center/cover;
-    height: 100vh;
+    background: linear-gradient(rgba(255, 105, 180, 0.7), rgba(255, 20, 147, 0.7)), url('img/2.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
     position: relative;
     color: var(--light-text);
     display: flex;
@@ -86,10 +86,9 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 2rem;
+    box-sizing: border-box;
 }
-
-
 
 .hero h1 {
     font-size: 3.5rem;
@@ -120,7 +119,6 @@ body {
 }
 
 /* 3D Book Gallery */
-
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -147,13 +145,12 @@ h2::after {
     margin: 10px auto 0;
 }
 
-
 .carousel-container {
     width: 100%;
     max-width: 1200px;
     margin: 50px auto;
     overflow: hidden;
-    padding: 0 10px; /* Tambahkan padding agar tidak terlalu menempel pada tepi layar */
+    padding: 0 10px;
 }
 
 .carousel {
@@ -177,8 +174,6 @@ h2::after {
     border-radius: 8px;
 }
 
-
-
 /* Memories Section */
 .memories {
     padding: 4rem 0;
@@ -186,20 +181,20 @@ h2::after {
 }
 
 .memories h2 {
-    font-family: 'Playfair Display', serif; /* Font mewah dan elegan */
-    font-size: 2.5rem; /* Ukuran lebih besar */
-    text-align: center; /* Tengah */
-    color: #333; /* Warna teks yang soft */
-    margin-bottom: 30px; /* Jarak bawah */
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
     position: relative;
     letter-spacing: 2px;
-    text-transform: uppercase; /* Huruf besar semua */
+    text-transform: uppercase;
 }
 
 .memories h2 span {
-    color: #FF4081; /* Warna aksen untuk menonjolkan kata */
-    font-family: 'Roboto', sans-serif; /* Font kontras untuk kata tertentu */
-    font-weight: 400; /* Lebih tipis dibandingkan 'Galeri' */
+    color: #FF4081;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 .memory-grid {
@@ -233,20 +228,71 @@ h2::after {
 }
 
 /* Improved Responsive Design */
+@media only screen and (max-width: 1200px) {
+    .container {
+        width: 95%;
+    }
+}
+
 @media only screen and (max-width: 992px) {
     .navbar .brand-logo {
         font-size: 1.3rem;
     }
-}
 
-
-
-@media (max-width: 480px) {
-    .hero {
-        height: 100vh;
-        padding-top: 40px;
+    .hero h1 {
+        font-size: 3rem;
     }
 
+    .hero p {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hero {
+        min-height: 80vh;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .carousel .carousel-item {
+        min-width: 200px;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: 1rem;
+    }
 
     .hero h1 {
         font-size: 2rem;
@@ -254,30 +300,55 @@ h2::after {
 
     .hero p {
         font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     h2 {
         font-size: 1.75rem;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .carousel-container {
-        margin: 20px auto;
+        margin: 30px auto;
     }
 
     .carousel .carousel-item {
+        min-width: 150px;
         padding: 5px;
     }
 
+    .memory-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .memory-card {
-        padding: 1rem;
+        padding: 1.2rem;
     }
 
     .memory-card h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .memory-card p {
         font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .carousel .carousel-item {
+        min-width: 120px;
     }
 }
