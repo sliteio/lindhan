@@ -74,7 +74,14 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Media query for mobile devices */
+@media only screen and (max-width: 992px) {
+    .navbar .brand-logo {
+        font-size: 1.3rem;
+    }
+}
 /* Hero Section */
+
 .hero {
     background: linear-gradient(rgba(255, 105, 180, 0.7), rgba(255, 20, 147, 0.7)), url('img/2.jpg') no-repeat center center/cover;
     height: 100vh;
@@ -87,6 +94,21 @@ body {
     text-align: center;
     padding: 0 20px;
 }
+
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh; /* Sesuaikan tinggi untuk layar kecil */
+        padding-top: 60px; /* Sesuaikan padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 60vh; /* Sesuaikan tinggi untuk layar sangat kecil */
+        padding-top: 40px; /* Sesuaikan padding */
+    }
+}
+
 
 .hero h1 {
     font-size: 3.5rem;
@@ -117,6 +139,7 @@ body {
 }
 
 /* 3D Book Gallery */
+
 h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -143,12 +166,27 @@ h2::after {
     margin: 10px auto 0;
 }
 
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem; /* Ukuran font lebih kecil untuk layar kecil */
+        margin-bottom: 20px; /* Sesuaikan jarak bawah */
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.75rem; /* Ukuran font lebih kecil untuk layar sangat kecil */
+        margin-bottom: 15px; /* Sesuaikan jarak bawah */
+    }
+}
+
 .carousel-container {
     width: 100%;
     max-width: 1200px;
     margin: 50px auto;
     overflow: hidden;
-    padding: 0 10px;
+    padding: 0 10px; /* Tambahkan padding agar tidak terlalu menempel pada tepi layar */
 }
 
 .carousel {
@@ -172,6 +210,31 @@ h2::after {
     border-radius: 8px;
 }
 
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .carousel .carousel-item {
+        min-width: 100%; /* Supaya gambar menyesuaikan lebar container */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        margin: 30px auto; /* Kurangi margin untuk layar sangat kecil */
+    }
+    
+    .carousel .carousel-item {
+        padding: 5px; /* Kurangi padding untuk layar kecil */
+    }
+}
+
+
+
+
 /* Memories Section */
 .memories {
     padding: 4rem 0;
@@ -179,20 +242,20 @@ h2::after {
 }
 
 .memories h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+    font-family: 'Playfair Display', serif; /* Font mewah dan elegan */
+    font-size: 2.5rem; /* Ukuran lebih besar */
+    text-align: center; /* Tengah */
+    color: #333; /* Warna teks yang soft */
+    margin-bottom: 30px; /* Jarak bawah */
     position: relative;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    text-transform: uppercase; /* Huruf besar semua */
 }
 
 .memories h2 span {
-    color: #FF4081;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+    color: #FF4081; /* Warna aksen untuk menonjolkan kata */
+    font-family: 'Roboto', sans-serif; /* Font kontras untuk kata tertentu */
+    font-weight: 400; /* Lebih tipis dibandingkan 'Galeri' */
 }
 
 .memory-grid {
@@ -225,19 +288,8 @@ h2::after {
     font-size: 1rem;
 }
 
-/* Improved Responsive Design */
-@media only screen and (max-width: 992px) {
-    .navbar .brand-logo {
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 100px) {
-    .hero {
-        height: 100vh;
-        padding-top: 60px;
-    }
-
+/* Responsive Design */
+@media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -247,74 +299,14 @@ h2::after {
     }
 
     .carousel-container {
-        height: auto;
-        margin: 30px auto;
-    }
-
-    .carousel {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .carousel .carousel-item {
-        min-width: 100%;
-        margin-bottom: 20px;
+        height: 400px;
     }
 
     .memory-grid {
         grid-template-columns: 1fr;
     }
 
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
-
     .navbar a {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 100vh;
-        padding-top: 40px;
-    }
-    .gallery{
-        height: 100vh;
-        padding-top: 40px;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-        margin-bottom: 15px;
-    }
-
-    .carousel-container {
-        margin: 20px auto;
-    }
-
-    .carousel .carousel-item {
-        padding: 5px;
-    }
-
-    .memory-card {
-        padding: 1rem;
-    }
-
-    .memory-card h3 {
-        font-size: 1.1rem;
-    }
-
-    .memory-card p {
         font-size: 0.9rem;
     }
 }
