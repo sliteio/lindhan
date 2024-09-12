@@ -74,12 +74,6 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Media query for mobile devices */
-@media only screen and (max-width: 992px) {
-    .navbar .brand-logo {
-        font-size: 1.3rem;
-    }
-}
 /* Hero Section */
 
 .hero {
@@ -95,19 +89,6 @@ body {
     padding: 0 20px;
 }
 
-@media (max-width: 768px) {
-    .hero {
-        height: 80vh; /* Sesuaikan tinggi untuk layar kecil */
-        padding-top: 60px; /* Sesuaikan padding */
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 60vh; /* Sesuaikan tinggi untuk layar sangat kecil */
-        padding-top: 40px; /* Sesuaikan padding */
-    }
-}
 
 
 .hero h1 {
@@ -166,20 +147,6 @@ h2::after {
     margin: 10px auto 0;
 }
 
-/* Responsif untuk layar kecil */
-@media (max-width: 768px) {
-    h2 {
-        font-size: 2rem; /* Ukuran font lebih kecil untuk layar kecil */
-        margin-bottom: 20px; /* Sesuaikan jarak bawah */
-    }
-}
-
-@media (max-width: 480px) {
-    h2 {
-        font-size: 1.75rem; /* Ukuran font lebih kecil untuk layar sangat kecil */
-        margin-bottom: 15px; /* Sesuaikan jarak bawah */
-    }
-}
 
 .carousel-container {
     width: 100%;
@@ -209,29 +176,6 @@ h2::after {
     object-fit: cover;
     border-radius: 8px;
 }
-
-/* Responsif untuk layar kecil */
-@media (max-width: 768px) {
-    .carousel {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .carousel .carousel-item {
-        min-width: 100%; /* Supaya gambar menyesuaikan lebar container */
-    }
-}
-
-@media (max-width: 480px) {
-    .carousel-container {
-        margin: 30px auto; /* Kurangi margin untuk layar sangat kecil */
-    }
-    
-    .carousel .carousel-item {
-        padding: 5px; /* Kurangi padding untuk layar kecil */
-    }
-}
-
 
 
 
@@ -288,25 +232,52 @@ h2::after {
     font-size: 1rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Improved Responsive Design */
+@media only screen and (max-width: 992px) {
+    .navbar .brand-logo {
+        font-size: 1.3rem;
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .hero {
+        height: 100vh;
+        padding-top: 40px;
+    }
+
+
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .hero p {
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin-bottom: 15px;
     }
 
     .carousel-container {
-        height: 400px;
+        margin: 20px auto;
     }
 
-    .memory-grid {
-        grid-template-columns: 1fr;
+    .carousel .carousel-item {
+        padding: 5px;
     }
 
-    .navbar a {
+    .memory-card {
+        padding: 1rem;
+    }
+
+    .memory-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .memory-card p {
         font-size: 0.9rem;
     }
 }
