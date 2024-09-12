@@ -23,15 +23,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Play music when gallery section is in view
-    const galleryy = document.getElementById('galleryy');
-    const galleryyMusic = document.getElementById('galleryyMusic');
-    let galleryyInView = false;
+    const gallery = document.getElementById('gallery');
+    const galleryMusic = document.getElementById('galleryMusic');
+    let galleryInView = false;
 
     window.addEventListener('scroll', function() {
-        const rect = galleryy.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight && !galleryyInView) {
-            galleryyMusic.play();
-            galleryyInView = true;  // Set flag so it only plays once
+        const rect = gallery.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight && !galleryInView) {
+            galleryMusic.play();
+            galleryInView = true;  // Set flag so it only plays once
         }
     });
 });
