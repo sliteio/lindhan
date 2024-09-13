@@ -149,8 +149,8 @@ h2::after {
     margin: 10px auto 0;
 }
 
-#gallery {
-    padding-top: 70px; /* Add padding to the top of the gallery section */
+.gallery{
+    padding-top: 70px;
 }
 
 .carousel-container {
@@ -159,6 +159,7 @@ h2::after {
     margin: 50px auto;
     overflow: hidden;
     padding: 0 10px;
+    padding-top: 70px;
 }
 
 .carousel {
