@@ -22,16 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Play music when gallery section is in view
-    const gallery = document.getElementById('gallery');
-    const galleryMusic = document.getElementById('galleryMusic');
-    let galleryInView = false;
-
-    window.addEventListener('scroll', function() {
-        const rect = gallery.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight && !galleryInView) {
-            galleryMusic.play();
-            galleryInView = true;  // Set flag so it only plays once
-        }
+    $(document).ready(function(){
+        $('.btn').click(function(){
+            $('#galleryMusic')[0].play();
+        });
     });
 });
+
